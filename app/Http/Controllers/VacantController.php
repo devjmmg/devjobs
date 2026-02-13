@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Salary;
 use Illuminate\Http\Request;
 
 class VacantController extends Controller

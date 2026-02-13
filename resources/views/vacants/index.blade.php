@@ -7,6 +7,13 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+            @if (session()->has('message'))
+                <div class="text-sm bg-green-100 text-green-500 p-2 border-l-4 border-green-500 font-semibold my-5">
+                    {{session('message')}}
+                </div>
+            @endif
+
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     {{ __("Mis vacantes") }}
