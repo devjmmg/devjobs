@@ -15,9 +15,11 @@ class Vacant extends Model
     // versión >= 10
     protected $casts = [
         'last_day' => 'date',
+        'published' => 'boolean'
     ];
 
     protected $fillable = [
+        'published',
         'title',
         'salary_id',
         'category_id',

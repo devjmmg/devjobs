@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Salary;
+use App\Models\Vacant;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 
 class VacantController extends Controller
 {
+
+    use AuthorizesRequests;
+
     /**
      * Display a listing of the resource.
      */
@@ -42,9 +46,13 @@ class VacantController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Vacant $vacant)
     {
-        //
+        $this->authorize('update', $vacant);
+
+        return view('vacants.edit', [
+            'vacant' => $vacant
+        ]);
     }
 
     /**
