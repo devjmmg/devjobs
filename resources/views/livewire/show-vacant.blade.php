@@ -14,7 +14,7 @@
                 <div class="flex justify-center items-center gap-2 mt-5 md:mt-0">
                     <a href="" class="text-sm bg-lime-500 hover:bg-lime-600 transition-colors ease-linear duration-300 p-3 rounded text-white">Candidatos</a>
                     <a href="{{route('vacants.edit', $v)}}" class="text-sm bg-blue-500 hover:bg-blue-600 transition-colors ease-linear duration-300 p-3 rounded text-white">Editar</a>
-                    <a href="" class="text-sm bg-red-500 hover:bg-red-600 transition-colors ease-linear duration-300 p-3 rounded text-white">Eliminar</a>
+                    <button wire:click="$dispatch('showAlert' , {{ $v->id }})" class="text-sm bg-red-500 hover:bg-red-600 transition-colors ease-linear duration-300 p-3 rounded text-white">Eliminar</button>
                 </div>
             </div>
         </div>
@@ -26,3 +26,31 @@
         {{ $vacants->links() }}
     </div>
 </div>
+
+@push('scripts')
+<script>
+    document.addEventListener('livewire:init', () => {
+        Livewire.on('showAlert', id => {
+            Swal.fire({
+                title: "¿Eliminar vacante?",
+                text: "Esta acción no se puede deshacer.",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "Sí, eliminar",
+                cancelButtonText: "Cancelar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.dispatch('deleteVacant', {vacant:id});
+                    Swal.fire({
+                        title: "¡Vacante eliminada!",
+                        text: "La vacante ha sido eliminada permanentemente.",
+                        icon: "success"
+                    });
+                }
+            });
+        });
+    });
+</script>
+@endpush
