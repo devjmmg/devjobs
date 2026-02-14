@@ -5,12 +5,13 @@ namespace App\Livewire;
 use App\Models\Category;
 use App\Models\Salary;
 use App\Models\Vacant;
-use Illuminate\Container\Attributes\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class CreateVacant extends Component
 {
+
+    use WithFileUploads;
 
     public $title = '';
     public $salary_id = '';
@@ -19,8 +20,6 @@ class CreateVacant extends Component
     public $last_day = '';
     public $description = '';
     public $image;
-
-    use WithFileUploads;
 
     protected $rules = [
         'title' => 'required|string|max:255',
@@ -51,13 +50,13 @@ class CreateVacant extends Component
         'image.max' => 'La imagen no debe pesar más de 2MB',
     ];
 
-    public function crearVacante()
+    public function createVacant()
     {
         $data = $this->validate();
 
         //Almacenar imagen
-        $img = $this->image->store('public/vacants');
-        $nameImg = str_replace('public/vacants/', '', $img);
+        $img = $this->image->store('vacants','public');
+        $imgname = basename($img);
 
         Vacant::create([
             'title' => $data['title'],
@@ -66,7 +65,7 @@ class CreateVacant extends Component
             'enterprise' => $data['enterprise'],
             'last_day' => $data['last_day'],
             'description' => $data['description'],
-            'image' => $nameImg,
+            'image' => $imgname,
             'user_id' => auth()->user()->id,
         ]);
 
