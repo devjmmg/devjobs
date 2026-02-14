@@ -5,12 +5,16 @@ namespace App\Livewire;
 use App\Models\Vacant;
 use Livewire\Attributes\On;
 use Livewire\Component;
+use Illuminate\Support\Facades\Storage;
 
 class ShowVacant extends Component
 {
     #[On('deleteVacant')]
     public function deleteVacant(Vacant $vacant)
     {
+        if ($vacant->image && Storage::disk('public')->exists('vacants/' . $vacant->image)) {
+            Storage::disk('public')->delete('vacants/' . $vacant->image);
+        }
         $vacant->delete();
     }
 
@@ -22,3 +26,4 @@ class ShowVacant extends Component
         ]);
     }
 }
+

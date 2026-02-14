@@ -6,10 +6,9 @@ use App\Models\Category;
 use App\Models\Salary;
 use App\Models\Vacant;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
-use function Symfony\Component\String\s;
 
 class EditVacant extends Component
 {
@@ -84,7 +83,7 @@ class EditVacant extends Component
 
         if ($this->image) {
             if ( $this->image_current) {
-                \Storage::disk('public')->delete('vacants/' .  $this->image_current);
+                Storage::disk('public')->delete('vacants/' .  $this->image_current);
             }
             $path = $this->image->store('vacants', 'public');
             $data['image'] = basename($path);
