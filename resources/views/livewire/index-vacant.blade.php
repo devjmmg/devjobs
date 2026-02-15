@@ -3,7 +3,7 @@
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg ">
             <div class="p-6 text-gray-900 border-b border-gray-300 md:flex md:justify-between md:items-center">
                 <div class="space-y-2">
-                    <a href="" class="font-bold text-lg">
+                    <a href="{{route('vacants.show', $v)}}" class="font-bold text-lg">
                         <h2>{{$v->title}}</h2>
                     </a>
                     <p class="font-semibold text-gray-600 text-base">{{$v->enterprise}}</p>

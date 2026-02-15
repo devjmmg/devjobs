@@ -14,7 +14,7 @@
                 </div>
             @endif
 
-            <livewire:show-vacant />
+            <livewire:index-vacant />
             
         </div>
     </div>

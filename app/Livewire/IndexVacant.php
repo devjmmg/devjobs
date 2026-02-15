@@ -7,7 +7,7 @@ use Livewire\Attributes\On;
 use Livewire\Component;
 use Illuminate\Support\Facades\Storage;
 
-class ShowVacant extends Component
+class IndexVacant extends Component
 {
     #[On('deleteVacant')]
     public function deleteVacant(Vacant $vacant)
@@ -21,7 +21,7 @@ class ShowVacant extends Component
     public function render()
     {
         $vacants = Vacant::where('user_id', auth()->user()->id)->paginate(10);
-        return view('livewire.show-vacant',[
+        return view('livewire.index-vacant',[
             'vacants' => $vacants 
         ]);
     }
