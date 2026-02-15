@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Category;
+use App\Models\Salary;
 use Illuminate\Database\Eloquent\Model;
 
 class Vacant extends Model
@@ -29,4 +31,14 @@ class Vacant extends Model
         'image',
         'user_id'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function salary()
+    {
+        return $this->belongsTo(Salary::class);
+    }
 }
