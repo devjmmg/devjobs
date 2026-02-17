@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Candidate;
 use App\Models\Category;
 use App\Models\Salary;
 use Illuminate\Database\Eloquent\Model;
@@ -41,4 +42,15 @@ class Vacant extends Model
     {
         return $this->belongsTo(Salary::class);
     }
+
+    public function candidates()
+    {
+        return $this->hasMany(Candidate::class);
+    }
+
+    public function hasApplied($user_id)
+    {
+        return $this->candidates()->where('user_id', $user_id)->exists();
+    }
+
 }

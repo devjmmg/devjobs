@@ -5,6 +5,7 @@ namespace App\Policies;
 use App\Models\User;
 use App\Models\Vacant;
 use Illuminate\Auth\Access\Response;
+use Illuminate\Container\Attributes\Auth;
 
 class VacantPolicy
 {
@@ -30,7 +31,6 @@ class VacantPolicy
     public function create(User $user): bool
     {
         return $user->role == 2;
-        return false;
     }
 
     /**

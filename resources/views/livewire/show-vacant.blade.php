@@ -1,3 +1,7 @@
+@php
+    use App\Models\Vacant;
+@endphp
+
 <div class="p-6 text-gray-900">
     <h1 class="text-2xl font-bold py-2">{{$vacant->title}}</h1>
     <div class="bg-gray-100 p-4 rounded grid md:grid-cols-2 gap-4">
@@ -33,4 +37,11 @@
             </p>
         </div>    
     @endguest
+
+    @auth
+        @cannot('create', Vacant::class)
+            <livewire:apply-vacant :vacant="$vacant" />
+        @endcannot
+    @endauth
+
 </div>

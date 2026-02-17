@@ -1,4 +1,4 @@
-<form action="" class="md:w-1/2 space-y-5" wire:submit.prevent="editVacant">
+<form class="md:w-1/2 space-y-5" wire:submit.prevent="editVacant">
 
     <div>
         <x-input-label for="published" :value="__('Publicar')" />

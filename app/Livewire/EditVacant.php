@@ -43,7 +43,6 @@ class EditVacant extends Component
         'published.required' => 'Selecciona si la vacante estará publicada',
         'published.boolean' => 'El valor de publicación no es válido',
 
-
         'title.required' => 'El título es obligatorio',
         'title.string' => 'El título debe ser texto',
         'title.max' => 'El título no debe superar 255 caracteres',
