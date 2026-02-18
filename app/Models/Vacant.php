@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Candidate;
 use App\Models\Category;
 use App\Models\Salary;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Vacant extends Model
@@ -51,6 +52,12 @@ class Vacant extends Model
     public function hasApplied($user_id)
     {
         return $this->candidates()->where('user_id', $user_id)->exists();
+    }
+
+    //El metodo va hacer hacia el reclutador que hizo la vacante, ya que se enviara una notificación
+    public function recruiters()
+    {
+        return $this->belongsTo(User::class,'user_id');
     }
 
 }

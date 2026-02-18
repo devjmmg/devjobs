@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Candidate;
 use App\Models\Vacant;
+use App\Notifications\NewCandidate;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -45,6 +46,9 @@ class ApplyVacant extends Component
             'cv' => $cvname,
             'user_id' => auth()->user()->id,
         ]);
+
+        // Crear notificación
+        $this->vacant->recruiters->notify(new NewCandidate(auth()->user(), $this->vacant));
 
         session()->flash('message', 'Postulación enviada correctamente. ¡Buena suerte!');
 
