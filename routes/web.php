@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NotificationNewCandidateController;
 use App\Http\Controllers\ProfileController;
@@ -14,6 +15,8 @@ Route::get('/vacants/{vacant}/edit', [VacantController::class, 'edit'])->middlew
 Route::get('/vacants/{vacant}/show', [VacantController::class, 'show'])->name('vacants.show');
 
 Route::get('/notifications', NotificationNewCandidateController::class)->middleware(['auth', 'verified', 'role.user'])->name('notifications.index');
+
+Route::get('/candidates/{vacant}', [CandidateController::class, 'index'])->middleware(['auth', 'verified', 'role.user'])->name('candidates.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

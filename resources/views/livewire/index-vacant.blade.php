@@ -12,7 +12,7 @@
                 </div>
                 
                 <div class="flex justify-center items-center gap-2 mt-5 md:mt-0">
-                    <a href="" class="text-sm bg-lime-500 hover:bg-lime-600 transition-colors ease-linear duration-300 p-3 rounded text-white">Candidatos</a>
+                    <a href="{{route('candidates.index', $v)}}" class="text-sm bg-lime-500 hover:bg-lime-600 transition-colors ease-linear duration-300 p-3 rounded text-white">{{$v->candidates->count()}} Candidatos</a>
                     <a href="{{route('vacants.edit', $v)}}" class="text-sm bg-blue-500 hover:bg-blue-600 transition-colors ease-linear duration-300 p-3 rounded text-white">Editar</a>
                     <button wire:click="$dispatch('showAlert' , {{ $v->id }})" class="text-sm bg-red-500 hover:bg-red-600 transition-colors ease-linear duration-300 p-3 rounded text-white">Eliminar</button>
                 </div>

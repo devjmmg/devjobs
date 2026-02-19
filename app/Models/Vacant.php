@@ -46,7 +46,7 @@ class Vacant extends Model
 
     public function candidates()
     {
-        return $this->hasMany(Candidate::class);
+        return $this->hasMany(Candidate::class)->orderBy('created_at','DESC');
     }
 
     public function hasApplied($user_id)
@@ -55,9 +55,9 @@ class Vacant extends Model
     }
 
     //El metodo va hacer hacia el reclutador que hizo la vacante, ya que se enviara una notificación
-    public function recruiters()
+    public function recruiter()
     {
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
 }

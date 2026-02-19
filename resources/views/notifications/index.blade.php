@@ -25,7 +25,7 @@
                             </div>
                             
                             <div class="flex justify-center items-center gap-2 mt-5 md:mt-0">
-                                <button class="text-sm bg-lime-500 hover:bg-lime-600 transition-colors ease-linear duration-300 p-3 rounded text-white">Ver candidatos</button>
+                                <a href="{{route('candidates.index', $n->data['vacant_id'])}}" class="text-sm bg-lime-500 hover:bg-lime-600 transition-colors ease-linear duration-300 p-3 rounded text-white">Ver candidatos</a>
                             </div>
                         </div>
                     </div>
