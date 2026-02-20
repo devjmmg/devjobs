@@ -27,4 +27,21 @@ class ProfileUpdateRequest extends FormRequest
             ],
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            // Name
+            'name.required' => 'El nombre es obligatorio.',
+            'name.string' => 'El nombre debe ser un texto válido.',
+            'name.max' => 'El nombre no puede tener más de 255 caracteres.',
+
+            // Email
+            'email.required' => 'El correo electrónico es obligatorio.',
+            'email.string' => 'El correo electrónico debe ser un texto válido.',
+            'email.email' => 'Debes ingresar un correo electrónico válido.',
+            'email.max' => 'El correo electrónico no puede tener más de 255 caracteres.',
+            'email.unique' => 'Este correo electrónico ya está registrado.',
+        ];
+    }
 }
