@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Vacant;
 use App\Notifications\NewCandidate;
 use Livewire\Component;
 use Livewire\WithFileUploads;

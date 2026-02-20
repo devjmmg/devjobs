@@ -16,7 +16,7 @@ class RoleUser
     public function handle(Request $request, Closure $next): Response
     {
         if (auth()->user()->role != 2) {
-            return redirect()->route('home');
+            return redirect()->route('home.index');
         }
         return $next($request);
     }
