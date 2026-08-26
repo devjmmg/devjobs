@@ -1,59 +1,205 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+![DevJobs](/screenshots/devjobs.jpg)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# DevJobs
 
-## About Laravel
+Plataforma web de vacantes y postulaciones desarrollada con Laravel y Livewire, enfocada en conectar candidatos con oportunidades laborales y proporcionar a los reclutadores herramientas para administrar sus ofertas de empleo y candidatos.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Tecnologías
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+* **Laravel 12**
+* **Livewire 4**
+* **PHP**
+* **Laravel Breeze**
+* **Blade Components**
+* **Tailwind CSS**
+* **MySQL**
+* **Mailtrap**
+* **Alpine.js**
+* **SweetAlert2**
+* **Vite**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Funcionalidades
 
-## Learning Laravel
+### Candidatos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+* Registro e inicio de sesión.
+* Verificación de correo electrónico.
+* Consulta de vacantes disponibles.
+* Búsqueda y filtrado de vacantes.
+* Visualización del detalle de cada vacante.
+* Postulación a ofertas de empleo.
+* Carga de CV durante la postulación.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Reclutadores
 
-## Laravel Sponsors
+* Registro e inicio de sesión como reclutador.
+* Creación de vacantes.
+* Administración de vacantes propias.
+* Edición y eliminación de vacantes.
+* Consulta de candidatos que se han postulado.
+* Gestión de las postulaciones recibidas.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Notificaciones
 
-### Premium Partners
+* Envío de correos electrónicos mediante Mailtrap.
+* Notificaciones relacionadas con nuevas postulaciones.
+* Comunicación entre las diferentes acciones del proceso de postulación.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Conceptos aplicados
 
-## Contributing
+* Arquitectura MVC de Laravel.
+* Autenticación mediante Laravel Breeze.
+* Autorización basada en roles.
+* Componentes Blade reutilizables.
+* Componentes dinámicos con Livewire.
+* Validación de formularios.
+* Manejo de archivos y carga de CV.
+* Relaciones entre modelos de Eloquent.
+* Notificaciones y envío de correos electrónicos.
+* Consultas y filtrado de información.
+* Protección de rutas y recursos.
+* Migraciones y seeders de base de datos.
+* Variables de entorno para configuración de la aplicación.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Livewire
 
-## Code of Conduct
+Livewire se utiliza para construir interfaces interactivas sin depender de una arquitectura frontend independiente.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Entre las funcionalidades implementadas se encuentran:
 
-## Security Vulnerabilities
+* Búsqueda dinámica de vacantes.
+* Filtrado de resultados.
+* Formularios interactivos.
+* Actualización de información sin recargar la página.
+* Manejo de estados en componentes.
+* Interacción entre componentes y la base de datos.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Esto permite mantener la lógica de la aplicación principalmente dentro del ecosistema Laravel, utilizando Blade y Livewire para la capa de presentación.
 
-## License
+## Autenticación y roles
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+La autenticación se implementó utilizando Laravel Breeze.
+
+La aplicación diferencia las funcionalidades disponibles dependiendo del rol del usuario:
+
+```text
+Usuario
+├── Candidato
+│   ├── Consultar vacantes
+│   ├── Buscar y filtrar
+│   ├── Ver detalles
+│   ├── Postularse
+│
+└── Reclutador
+    ├── Crear vacantes
+    ├── Administrar vacantes
+    ├── Consultar postulaciones
+    └── Gestionar candidatos
+```
+
+El acceso a las diferentes funcionalidades se controla mediante autenticación y autorización.
+
+## Manejo de postulaciones
+
+El flujo principal de una postulación es:
+
+```text
+Candidato
+    ↓
+Consulta una vacante
+    ↓
+Revisa los requisitos
+    ↓
+Carga su CV
+    ↓
+Envía la postulación
+    ↓
+Se registra la postulación
+    ↓
+El reclutador recibe una notificación
+    ↓
+El reclutador consulta al candidato
+```
+
+Este flujo permite relacionar candidatos, vacantes y postulaciones dentro de la aplicación.
+
+## Correos y notificaciones
+
+La aplicación utiliza el sistema de notificaciones y correo de Laravel para comunicar eventos relacionados con las postulaciones.
+
+Durante el desarrollo se utilizó **Mailtrap** para probar el envío de correos electrónicos sin utilizar un servidor de correo real.
+
+## Interfaz
+
+La interfaz está construida con Blade y Tailwind CSS, utilizando componentes reutilizables para mantener una estructura consistente en las diferentes vistas.
+
+Para determinadas interacciones de la interfaz también se utilizan Livewire y Alpine.js.
+
+## Instalación
+
+Clonar el repositorio:
+
+```bash
+git clone https://github.com/devjmmg/devjobs.git
+cd devjobs
+```
+
+Instalar las dependencias de PHP:
+
+```bash
+composer install
+```
+
+Instalar las dependencias de JavaScript:
+
+```bash
+npm install
+```
+
+Crear el archivo de configuración:
+
+```bash
+cp .env.example .env
+```
+
+Generar la clave de la aplicación:
+
+```bash
+php artisan key:generate
+```
+
+Configurar en `.env` las credenciales de la base de datos y los parámetros necesarios para el envío de correos.
+
+Ejecutar las migraciones:
+
+```bash
+php artisan migrate
+```
+
+Iniciar Vite:
+
+```bash
+npm run dev
+```
+
+En otra terminal iniciar el servidor de Laravel:
+
+```bash
+php artisan serve
+```
+
+La aplicación estará disponible en:
+
+```text
+http://127.0.0.1:8000
+```
+
+## Demo
+
+[Ver aplicación](https://devjobs-jmmg.mnz.dom.my.id/)
+
+## Autor
+
+Juan Manuel Martínez García
+
+GitHub: [devjmmg](https://github.com/devjmmg)
